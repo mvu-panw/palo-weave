@@ -6,7 +6,7 @@ const AUTH_STORAGE_KEY = "intranetAuth";
 //     .then(b => console.log(Array.from(new Uint8Array(b)).map(x => x.toString(16).padStart(2, "0")).join("")))
 // then replace the value below. This is a client-side deterrent, not real
 // security — the hash (and this check) is visible via view-source.
-const PASSWORD_HASH = "REPLACE_WITH_SHA256_HEX_OF_SHARED_PASSWORD";
+const PASSWORD_HASH = "2f6e3ab82f8e4ce5202f427fa35ad39a843e64dfc236d6ec06352e5afb0b2e7f";
 
 async function sha256Hex(text) {
   const data = new TextEncoder().encode(text);
