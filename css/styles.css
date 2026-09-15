@@ -80,19 +80,6 @@ a { color: inherit; }
   font-weight: 300;
 }
 
-.logo-chip {
-  display: inline-flex;
-  align-items: center;
-  background: #fff;
-  border-radius: 8px;
-  padding: 6px 10px;
-}
-
-.logo-chip img {
-  height: 22px;
-  width: auto;
-}
-
 .site-nav {
   display: flex;
   align-items: center;
@@ -158,6 +145,7 @@ a { color: inherit; }
 
 /* ---------- Page header ---------- */
 .page-header {
+  width: 100%;
   padding: 64px 32px 32px;
   max-width: 1180px;
   margin: 0 auto;
@@ -173,6 +161,7 @@ a { color: inherit; }
 
 /* ---------- Resource / update cards ---------- */
 .resource-grid {
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   gap: 24px;
@@ -233,7 +222,8 @@ a { color: inherit; }
 
 /* ---------- Embedded documents ---------- */
 .embed-wrap {
-  max-width: 1180px;
+  width: 100%;
+  max-width: 1600px;
   margin: 0 auto 48px;
   padding: 0 32px;
 }
@@ -244,7 +234,8 @@ a { color: inherit; }
   border-radius: var(--radius);
   overflow: hidden;
   background: var(--bg-elevated);
-  aspect-ratio: 16 / 10;
+  height: 80vh;
+  min-height: 700px;
 }
 
 .embed-frame iframe {
@@ -263,24 +254,6 @@ a { color: inherit; }
 }
 
 .embed-open-link:hover { text-decoration: underline; }
-
-.section-heading {
-  max-width: 1180px;
-  margin: 0 auto 20px;
-  padding: 0 32px;
-}
-
-.section-heading h2 {
-  margin: 0 0 6px;
-  font-size: 1.3rem;
-  font-weight: 800;
-}
-
-.section-heading p {
-  margin: 0;
-  color: var(--text-muted);
-  font-size: 0.9rem;
-}
 
 /* ---------- Login / password gate ---------- */
 main.gate {
@@ -381,5 +354,4 @@ main.gate {
   .page-header { padding: 48px 20px 24px; }
   .resource-grid { padding: 0 20px; }
   .embed-wrap { padding: 0 20px; }
-  .section-heading { padding: 0 20px; }
 }
