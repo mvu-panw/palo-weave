@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign In — Palo Alto Networks Updates</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <main class="gate">
+    <div class="gate-panel">
+      <div class="logo-badge">
+        <img src="assets/images/panw_RGB_Logo_Negative.png" alt="Palo Alto Networks" />
+      </div>
+      <div class="card">
+        <h1>Welcome</h1>
+        <p class="subtitle">Enter the access password to view your updates.</p>
+        <form id="login-form" novalidate>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Enter password" required autocomplete="current-password" />
+          </div>
+          <p id="form-error" class="form-error"></p>
+          <button type="submit" id="submit-btn" class="btn btn-primary">Enter</button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <span>Palo Alto Networks</span>
+  </footer>
+
+  <script src="js/auth.js"></script>
+  <script>
+    if (isAuthenticated()) {
+      window.location.href = "updates.html";
+    }
+
+    const form = document.getElementById("login-form");
+    const errorMsg = document.getElementById("form-error");
+    const submitBtn = document.getElementById("submit-btn");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      errorMsg.textContent = "";
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Checking…";
+
+      const password = form.password.value;
+      const ok = await checkPassword(password);
+      if (ok) {
+        setAuthenticated();
+        window.location.href = "updates.html";
+      } else {
+        errorMsg.textContent = "Incorrect password. Please try again.";
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Enter";
+      }
+    });
+  </script>
+</body>
+</html>

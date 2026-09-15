@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resources — Palo Alto Networks</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="logo-badge">
+      <img src="assets/images/panw_RGB_Logo_Negative.png" alt="Palo Alto Networks" />
+    </div>
+    <nav class="site-nav">
+      <a href="updates.html">Updates</a>
+      <a href="resources.html" class="active">Resources</a>
+    </nav>
+    <span class="header-tag">Customer Updates</span>
+  </header>
+
+  <div class="page-header">
+    <h1>Resources</h1>
+    <p>Reference material and product documentation.</p>
+  </div>
+
+  <div class="resource-grid">
+    <a class="resource-card" href="#" target="_blank" rel="noopener noreferrer">
+      <h3>NGFW Overview Deck</h3>
+      <p>Slide deck covering Next-Generation Firewall capabilities.</p>
+    </a>
+    <a class="resource-card" href="#" target="_blank" rel="noopener noreferrer">
+      <h3>Prisma AIRS Solution Brief</h3>
+      <p>Overview of Prisma AI Runtime Security capabilities and deployment.</p>
+    </a>
+    <a class="resource-card" href="#" target="_blank" rel="noopener noreferrer">
+      <h3>Cortex XSIAM Datasheet</h3>
+      <p>Technical datasheet for the Cortex XSIAM platform.</p>
+    </a>
+  </div>
+
+  <footer class="site-footer">
+    <span>Palo Alto Networks</span>
+    <a href="#" id="logout-link">Log out</a>
+  </footer>
+
+  <script src="js/auth.js"></script>
+  <script>
+    requireAuth();
+    document.getElementById("logout-link").addEventListener("click", (e) => {
+      e.preventDefault();
+      logout();
+    });
+  </script>
+</body>
+</html>
