@@ -74,6 +74,13 @@ a { color: inherit; }
   width: auto;
 }
 
+/* The CoreWeave mark is cropped tight to its ink with no internal
+   padding, unlike the Palo Alto lockup (padded ~38% by canvas
+   height). Sized down so the two read as equal visual weight. */
+.logo-badge > img.logo-coreweave {
+  height: 32px;
+}
+
 .logo-divider {
   color: var(--text-muted);
   font-size: 1.2rem;
@@ -272,6 +279,7 @@ main.gate {
 }
 
 .gate-panel .logo-badge > img { height: 44px; }
+.gate-panel .logo-badge > img.logo-coreweave { height: 27px; }
 
 .card {
   padding: 32px;
