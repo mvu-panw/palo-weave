@@ -66,10 +66,30 @@ a { color: inherit; }
 .logo-badge {
   display: inline-flex;
   align-items: center;
+  gap: 14px;
 }
 
-.logo-badge img {
+.logo-badge > img {
   height: 52px;
+  width: auto;
+}
+
+.logo-divider {
+  color: var(--text-muted);
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+
+.logo-chip {
+  display: inline-flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 8px;
+  padding: 6px 10px;
+}
+
+.logo-chip img {
+  height: 22px;
   width: auto;
 }
 
@@ -211,6 +231,57 @@ a { color: inherit; }
   letter-spacing: 0.04em;
 }
 
+/* ---------- Embedded documents ---------- */
+.embed-wrap {
+  max-width: 1180px;
+  margin: 0 auto 48px;
+  padding: 0 32px;
+}
+
+.embed-frame {
+  position: relative;
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--bg-elevated);
+  aspect-ratio: 16 / 10;
+}
+
+.embed-frame iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.embed-open-link {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--blue);
+  text-decoration: none;
+}
+
+.embed-open-link:hover { text-decoration: underline; }
+
+.section-heading {
+  max-width: 1180px;
+  margin: 0 auto 20px;
+  padding: 0 32px;
+}
+
+.section-heading h2 {
+  margin: 0 0 6px;
+  font-size: 1.3rem;
+  font-weight: 800;
+}
+
+.section-heading p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
 /* ---------- Login / password gate ---------- */
 main.gate {
   flex: 1;
@@ -227,7 +298,7 @@ main.gate {
   margin-bottom: 28px;
 }
 
-.gate-panel .logo-badge img { height: 44px; }
+.gate-panel .logo-badge > img { height: 44px; }
 
 .card {
   padding: 32px;
@@ -309,4 +380,6 @@ main.gate {
   .header-tag { display: none; }
   .page-header { padding: 48px 20px 24px; }
   .resource-grid { padding: 0 20px; }
+  .embed-wrap { padding: 0 20px; }
+  .section-heading { padding: 0 20px; }
 }
