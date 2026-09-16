@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Purpose
 
-A customer-facing static site showing Palo Alto Networks product/feature updates and reference resources. Visually cloned from the internal `ai_district_hub` project (fonts, color tokens, header/footer/card components), stripped of anything internal-facing (team directory, internal doc links, partner logos).
+A customer-facing static site for the CoreWeave joint account, showing Palo Alto Networks product updates and the CoreWeave NGFW deployment estate. Visually cloned from the internal `ai_district_hub` project (fonts, color tokens, header/footer components), stripped of anything internal-facing (team directory, internal doc links, partner logos). Co-branded with the CoreWeave logo in the header.
 
 ## Stack
 
@@ -29,8 +29,11 @@ The site is gated behind a single shared password, checked entirely client-side 
 
 Header, nav, and footer markup are copy-pasted into every HTML page (`index.html` uses a simplified header-less gate layout; `updates.html`/`resources.html` share the full header+nav+footer). When changing nav items, branding text, or footer content, update all pages by hand.
 
-## Updates content
+## Content
 
-`js/updates-data.js` holds the `UPDATES` array (`title`, `date` as ISO `YYYY-MM-DD`, `category`, `description`, optional `link`). Add a new update by adding an object to this array — `js/updates.js` sorts by date (newest first) and renders cards automatically; no other file needs to change. Leave `link` empty for a non-clickable card.
+Both content pages are just an embedded document, not hand-authored HTML:
 
-`resources.html`'s cards are hand-written (not data-driven), matching how `ai_district_hub`'s own `resources.html` is hand-written — only content that changes frequently (like Updates) uses the data-array pattern.
+- `updates.html` ("Product Updates") embeds a Google Doc newsletter.
+- `resources.html` ("Coreweave NGFW Estate") embeds a Google Sheet tracking the CoreWeave NGFW deployment.
+
+Both use the same `.embed-wrap`/`.embed-frame` pattern (adapted from `ai_district_hub`'s newsletter embed): an iframe pointed at the doc's `/preview` URL (swap in for the `/edit?usp=sharing` share link), plus an "Open in new tab" link to the original share URL. Access to the embedded content follows whatever the Google Doc/Sheet's own sharing settings allow — it is not controlled by this site's password gate. A `.embed-placeholder-note` overlay marks an embed that hasn't been wired up yet (see `updates.html` for the current placeholder).

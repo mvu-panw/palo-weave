@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Updates — Palo Alto Networks</title>
+  <title>Product Updates — Palo Alto Networks</title>
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
@@ -14,7 +14,7 @@
       <img class="logo-coreweave" src="assets/images/coreweave.png" alt="CoreWeave" />
     </div>
     <nav class="site-nav">
-      <a href="updates.html" class="active">Updates</a>
+      <a href="updates.html" class="active">Product Updates</a>
       <a href="resources.html">Coreweave NGFW Estate</a>
     </nav>
     <span class="header-tag">Customer Updates</span>
@@ -25,7 +25,24 @@
     <p>The latest Palo Alto Networks product and feature updates.</p>
   </div>
 
-  <div id="updates-feed" class="resource-grid"></div>
+  <div class="embed-wrap">
+    <div class="embed-frame">
+      <!--
+        Replace the iframe src below with the newsletter Google Doc's
+        embed URL: take the "Share" link and swap the trailing
+        /edit?usp=sharing for /preview.
+      -->
+      <iframe
+        src="about:blank"
+        title="Product Updates Newsletter"
+        allowfullscreen
+      ></iframe>
+      <div class="embed-placeholder-note">
+        Newsletter embed not yet configured.
+        <code>Set the iframe src in updates.html to the newsletter doc's /preview URL.</code>
+      </div>
+    </div>
+  </div>
 
   <footer class="site-footer">
     <span>Palo Alto Networks</span>
@@ -33,8 +50,6 @@
   </footer>
 
   <script src="js/auth.js"></script>
-  <script src="js/updates-data.js"></script>
-  <script src="js/updates.js"></script>
   <script>
     requireAuth();
     document.getElementById("logout-link").addEventListener("click", (e) => {
