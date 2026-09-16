@@ -90,12 +90,15 @@ a { color: inherit; }
 .site-nav {
   display: flex;
   align-items: center;
-  gap: 28px;
+  flex-wrap: wrap;
+  row-gap: 8px;
+  column-gap: 24px;
   margin-right: auto;
   margin-left: 40px;
 }
 
 .site-nav a {
+  white-space: nowrap;
   text-decoration: none;
   color: var(--text-muted);
   font-weight: 600;
@@ -120,6 +123,7 @@ a { color: inherit; }
   display: inline-flex;
   align-items: center;
   gap: 5px;
+  white-space: nowrap;
   color: var(--text-muted);
   font-weight: 600;
   font-size: 0.95rem;
@@ -398,7 +402,7 @@ main.gate {
 
 @media (max-width: 640px) {
   .site-header { padding: 12px 20px; }
-  .site-nav { margin-left: 20px; gap: 18px; }
+  .site-nav { margin-left: 20px; column-gap: 18px; }
   .header-tag { display: none; }
   .page-header { padding: 48px 20px 24px; }
   .embed-wrap { padding: 0 20px; }

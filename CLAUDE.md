@@ -37,6 +37,8 @@ Every content page is just an embedded document, not hand-authored HTML:
 
 - `updates.html` ("Product Updates") embeds a Google Doc newsletter.
 - `resources.html` ("Coreweave NGFW Estate") embeds a Google Sheet tracking the CoreWeave NGFW deployment.
-- `remote-root-of-trust-attestation.html` and `ai-dc-reference-architecture.html` (under the "Project Repo" dropdown) each embed a project doc — placeholders, not yet wired to a real doc.
+- `remote-root-of-trust-attestation.html` and `ai-dc-reference-architecture.html` (under the "Project Repo" dropdown) embed a Google Doc and a Google Slides deck, respectively.
+
+The top-level nav also has a "Palo Security Advisories" link straight to `https://security.paloaltonetworks.com/` (`target="_blank"`, external — not part of this site, not gated).
 
 All four use the same `.embed-wrap`/`.embed-frame` pattern (adapted from `ai_district_hub`'s newsletter embed): an iframe pointed at the doc's `/preview` URL (swap in for the `/edit?usp=sharing` share link), plus an "Open in new tab" link to the original share URL. Access to the embedded content follows whatever the Google Doc/Sheet's own sharing settings allow — it is not controlled by this site's password gate. A `.embed-placeholder-note` overlay marks an embed that hasn't been wired up yet.
