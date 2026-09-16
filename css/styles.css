@@ -197,13 +197,6 @@ a { color: inherit; }
   background: rgba(255, 255, 255, 0.06);
 }
 
-.header-tag {
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: var(--text-muted);
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
 
 /* ---------- Buttons ---------- */
 .btn {
@@ -416,7 +409,6 @@ main.gate {
 @media (max-width: 640px) {
   .site-header { padding: 12px 20px; }
   .site-nav { margin-left: 20px; column-gap: 18px; }
-  .header-tag { display: none; }
   .page-header { padding: 48px 20px 24px; }
   .embed-wrap { padding: 0 20px; }
   .section-heading { padding: 0 20px; }
