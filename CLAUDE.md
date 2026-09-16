@@ -18,11 +18,11 @@ Deploys to GitHub Pages via `.github/workflows/deploy.yml` on push to `main` (re
 
 ## Access control
 
-The site is gated behind a single shared password, checked entirely client-side in `js/auth.js`:
+Most of the site is gated behind a single shared password, checked entirely client-side in `js/auth.js`. **`updates.html` ("Product Updates") is the one exception — it has no auth check and is publicly reachable without logging in.** Every other page (`resources.html`, `remote-root-of-trust-attestation.html`, `ai-dc-reference-architecture.html`) is still gated.
 
 - `PASSWORD_HASH` in `js/auth.js` holds the SHA-256 hex digest of the shared password (never the plaintext). To rotate the password, compute a new digest in a browser console — see the comment in `js/auth.js` for the exact snippet — and replace the constant.
-- On correct entry, `index.html` sets `localStorage["intranetAuth"] = "1"`. Every gated page (`updates.html`, `resources.html`) calls `requireAuth()` from `js/auth.js` in an inline `<script>` before `</body>`, redirecting to `index.html` if the key is missing.
-- `localStorage` (not `sessionStorage`) is used deliberately so a returning customer doesn't have to re-enter the password every visit. This means a shared/public computer stays "logged in" until someone clicks the "Log out" link in the footer, which clears the key.
+- On correct entry, `index.html` sets `localStorage["intranetAuth"] = "1"`. Each gated page calls `requireAuth()` from `js/auth.js` in an inline `<script>` before `</body>`, redirecting to `index.html` if the key is missing, and has a "Log out" link in the footer wired to `logout()`. `updates.html` has neither — no `js/auth.js` include, no guard script, no logout link.
+- `localStorage` (not `sessionStorage`) is used deliberately so a returning customer doesn't have to re-enter the password every visit on the gated pages. This means a shared/public computer stays "logged in" until someone clicks "Log out."
 - This is a deterrent, not real security — the password hash and check logic are visible via view-source, and a determined visitor can bypass the check via dev tools. There is no per-user identity or backend enforcement.
 
 ## No templating
@@ -35,7 +35,7 @@ The nav has a "Project Repo" dropdown (`.nav-dropdown`/`.nav-dropdown-menu`, hov
 
 Every content page is just an embedded document, not hand-authored HTML:
 
-- `updates.html` ("Product Updates") embeds a Google Doc newsletter.
+- `updates.html` ("Product Updates") embeds a Google Doc newsletter, plus an "NGFW" section (`.section-heading`) embedding a Google Slides deck below it.
 - `resources.html` ("Coreweave NGFW Estate") embeds a Google Sheet tracking the CoreWeave NGFW deployment.
 - `remote-root-of-trust-attestation.html` and `ai-dc-reference-architecture.html` (under the "Project Repo" dropdown) embed a Google Doc and a Google Slides deck, respectively.
 
