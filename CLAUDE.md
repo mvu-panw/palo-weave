@@ -29,7 +29,7 @@ The site is gated behind a single shared password, checked entirely client-side 
 
 Header, nav, and footer markup are copy-pasted into every HTML page (`index.html` uses a simplified header-less gate layout; every other page shares the full header+nav+footer). When changing nav items, branding text, or footer content, update all pages by hand.
 
-The nav has a "Project Notes" dropdown (`.nav-dropdown`/`.nav-dropdown-menu`, hover + `:focus-within` driven, no JS) for pages that don't warrant a top-level nav slot. The trigger is a `.nav-dropdown-label` span, not a link — there's no landing page for "Project Notes" itself. Add `active` to the label span (not just the matching link inside the menu) on any page reached through the dropdown, so the top-level nav still shows where you are.
+The nav has a "Project Repo" dropdown (`.nav-dropdown`/`.nav-dropdown-menu`, hover + `:focus-within` driven, no JS) for pages that don't warrant a top-level nav slot. The trigger is a `.nav-dropdown-label` span, not a link — there's no landing page for "Project Repo" itself. Add `active` to the label span (not just the matching link inside the menu) on any page reached through the dropdown, so the top-level nav still shows where you are.
 
 ## Content
 
@@ -37,6 +37,6 @@ Every content page is just an embedded document, not hand-authored HTML:
 
 - `updates.html` ("Product Updates") embeds a Google Doc newsletter.
 - `resources.html` ("Coreweave NGFW Estate") embeds a Google Sheet tracking the CoreWeave NGFW deployment.
-- `remote-root-of-trust-attestation.html` and `ai-dc-reference-architecture.html` (under the "Project Notes" dropdown) each embed a project doc — placeholders, not yet wired to a real doc.
+- `remote-root-of-trust-attestation.html` and `ai-dc-reference-architecture.html` (under the "Project Repo" dropdown) each embed a project doc — placeholders, not yet wired to a real doc.
 
 All four use the same `.embed-wrap`/`.embed-frame` pattern (adapted from `ai_district_hub`'s newsletter embed): an iframe pointed at the doc's `/preview` URL (swap in for the `/edit?usp=sharing` share link), plus an "Open in new tab" link to the original share URL. Access to the embedded content follows whatever the Google Doc/Sheet's own sharing settings allow — it is not controlled by this site's password gate. A `.embed-placeholder-note` overlay marks an embed that hasn't been wired up yet.
