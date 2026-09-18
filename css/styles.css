@@ -66,6 +66,7 @@ a { color: inherit; }
 .logo-badge {
   display: inline-flex;
   align-items: center;
+  text-decoration: none;
 }
 
 .logo-badge > img {
