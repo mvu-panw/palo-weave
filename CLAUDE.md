@@ -31,9 +31,8 @@ The nav has a "Technical Resources" dropdown (`.nav-dropdown`/`.nav-dropdown-men
 
 ## Content
 
-- `updates.html` ("Product Updates") embeds a Google Doc newsletter.
-- `techdocs.html` (under "Technical Resources") embeds a single doc — a placeholder, not yet wired to a real doc.
-- `github.html`, `api-docs.html`, and `slide-decks-spreadsheets.html` (under "Technical Resources") are `.resource-grid`/`.resource-card` link lists (title + description + external link) rather than embeds — `github.html` for repo links, `api-docs.html` for PAN developer-portal links, `slide-decks-spreadsheets.html` for Google Drive links. An HTML comment in each shows the card markup to add more.
+- `updates.html` ("Product Updates") embeds a Google Doc newsletter — the only remaining `.embed-wrap`/`.embed-frame` page.
+- `techdocs.html`, `github.html`, `api-docs.html`, and `slide-decks-spreadsheets.html` (all under "Technical Resources") are `.resource-grid`/`.resource-card` link lists (title + description + external link): `techdocs.html` and `api-docs.html` for PAN documentation links, `github.html` for repo links, `slide-decks-spreadsheets.html` for Google Drive links. An HTML comment in each shows the card markup to add more.
 
 The top-level nav also has a "Palo Security Advisories" link straight to `https://security.paloaltonetworks.com/` (`target="_blank"`, external, not part of this site).
 
