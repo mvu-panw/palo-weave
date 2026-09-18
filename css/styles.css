@@ -66,25 +66,11 @@ a { color: inherit; }
 .logo-badge {
   display: inline-flex;
   align-items: center;
-  gap: 14px;
 }
 
 .logo-badge > img {
   height: 52px;
   width: auto;
-}
-
-/* The CoreWeave mark is cropped tight to its ink with no internal
-   padding, unlike the Palo Alto lockup (padded ~38% by canvas
-   height). Sized down so the two read as equal visual weight. */
-.logo-badge > img.logo-coreweave {
-  height: 32px;
-}
-
-.logo-divider {
-  color: var(--text-muted);
-  font-size: 1.2rem;
-  font-weight: 300;
 }
 
 .site-nav {
@@ -115,6 +101,87 @@ a { color: inherit; }
   border-bottom-color: var(--blue-strong);
 }
 
+.nav-dropdown {
+  position: relative;
+}
+
+.nav-dropdown-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 6px 2px;
+  border-bottom: 2px solid transparent;
+  cursor: default;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.nav-dropdown-caret {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 5px solid currentColor;
+  transition: transform 0.15s ease;
+}
+
+.nav-dropdown:hover .nav-dropdown-label,
+.nav-dropdown:focus-within .nav-dropdown-label {
+  color: var(--text);
+}
+
+.nav-dropdown-label.active {
+  color: var(--text);
+  border-bottom-color: var(--blue-strong);
+}
+
+.nav-dropdown:hover .nav-dropdown-caret,
+.nav-dropdown:focus-within .nav-dropdown-caret {
+  transform: rotate(180deg);
+}
+
+.nav-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 30;
+  min-width: 260px;
+  padding: 8px;
+  border-radius: var(--radius);
+  border: 1px solid var(--panel-border);
+  background: var(--bg-elevated);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.15s ease, visibility 0.15s ease;
+}
+
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown:focus-within .nav-dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+}
+
+.nav-dropdown-menu a {
+  display: block;
+  padding: 9px 12px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-decoration: none;
+  border-bottom: none;
+}
+
+.nav-dropdown-menu a:hover,
+.nav-dropdown-menu a.active {
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.06);
+}
 
 /* ---------- Buttons ---------- */
 .btn {
@@ -161,6 +228,47 @@ a { color: inherit; }
 }
 
 .page-header p { color: var(--text-muted); margin: 0; max-width: 560px; }
+
+/* ---------- Resource cards ---------- */
+.resource-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 24px;
+  max-width: 1180px;
+  margin: 0 auto 96px;
+  padding: 0 32px;
+}
+
+.resource-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 28px;
+  border-radius: var(--radius);
+  border: 1px solid var(--panel-border);
+  background: var(--bg-elevated);
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.resource-card:hover {
+  border-color: var(--blue-strong);
+  transform: translateY(-3px);
+}
+
+.resource-card h3 {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.resource-card p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
 
 /* ---------- Embedded documents ---------- */
 .embed-wrap {
@@ -248,7 +356,6 @@ main.gate {
 }
 
 .gate-panel .logo-badge > img { height: 44px; }
-.gate-panel .logo-badge > img.logo-coreweave { height: 27px; }
 
 .card {
   padding: 32px;
@@ -328,6 +435,7 @@ main.gate {
   .site-header { padding: 12px 20px; }
   .site-nav { margin-left: 20px; column-gap: 18px; }
   .page-header { padding: 48px 20px 24px; }
+  .resource-grid { padding: 0 20px; }
   .embed-wrap { padding: 0 20px; }
   .section-heading { padding: 0 20px; }
 }
