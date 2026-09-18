@@ -305,19 +305,6 @@ a { color: inherit; }
 
 .embed-open-link:hover { text-decoration: underline; }
 
-.section-heading {
-  width: 100%;
-  max-width: 1600px;
-  margin: 0 auto 20px;
-  padding: 0 32px;
-}
-
-.section-heading h2 {
-  margin: 0;
-  font-size: 1.5rem;
-  font-weight: 800;
-}
-
 .embed-placeholder-note {
   position: absolute;
   inset: 0;
@@ -437,5 +424,4 @@ main.gate {
   .page-header { padding: 48px 20px 24px; }
   .resource-grid { padding: 0 20px; }
   .embed-wrap { padding: 0 20px; }
-  .section-heading { padding: 0 20px; }
 }
